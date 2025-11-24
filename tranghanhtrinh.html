@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Lập kế hoạch hành trình</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="container">
+        <img src="./images/logo.jpg" alt="logo" style="width: 110px;">
+        <a href="trangchu.html" class="logo">Vòng Quanh Việt Nam</a>
+        <ul>
+             <li><a href="trangchu.html">Trang chủ</a></li>
+            <li><a href="tranghanhtrinh.html">Hành trình</a></li>
+            <li><a href="trangtainguyen.html">Tài nguyên</a></li>
+            <li><a href="gioithieu.html">Giới thiệu</a></li>
+            <li><a href="lienhe.html">Liên Hệ</a></li>
+        </ul>
+    </nav>
+</header>
+<div id="map" style="height: 400px;"></div>
+
+<!-- Thư viện Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- Thư viện Routing Machine -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+<script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+
+<script>
+// Tạo bản đồ
+var map = L.map('map').setView([21.0285, 105.8542], 13); // Hà Nội
+
+// Load nền bản đồ OpenStreetMap
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19
+}).addTo(map);
+
+// Route từ điểm A → điểm B
+L.Routing.control({
+    waypoints: [
+        L.latLng(21.0285, 105.8542), // Điểm A
+        L.latLng(21.0350, 105.8500)  // Điểm B
+    ]
+}).addTo(map);
+</script>
+
+<!-- HERO -->
+
+<section class="container">
+    <h2 class="section-title">Vui Lòng Nhập Thông Tin Hành Trình</h2>
+
+    <div class="card" style="padding:30px;">
+        <label>Điểm bắt đầu:</label>
+        <input type="text" placeholder="Hà Nội" style="width:100%; padding:10px;"><br><br>
+
+        <label>Điểm đến:</label>
+        <input type="text" placeholder="Ninh Bình" style="width:100%; padding:10px;"><br><br>
+
+        <label>Số ngày dự kiến:</label>
+        <input type="number" placeholder="3" style="width:120px; padding:10px;"><br><br>
+
+        <label>Phương tiện di chuyển:</label><br>
+        <select style="padding:10px; width:200px;">
+            <option>Xe máy</option>
+            <option>Ô tô</option>
+            <option>Máy bay</option>
+            <option>Xe khách</option>
+        </select><br><br>
+        
+
+        <a class="btn">Tạo tuyến đường</a>
+    </div>
+</section>
+
+<section class="container">
+    <h2 class="section-title">Gợi ý lịch trình mẫu</h2>
+
+    <div class="cards">
+        <div class="card">
+            <img src="images/da-lat.jpg">
+            <h3>Đà Lạt 3 ngày 2 đêm</h3>
+            <p>Khám phá hồ Tuyền Lâm – Vườn Ánh Sáng – Đồi chè Cầu Đất.</p>
+            <div class="info-box">
+            <p class="label">Chi phí tour:</p>
+            <p class="value">3.500.000đ / người</p>
+</div>
+
+        </div>
+
+        <div class="card">
+            <img src="images/ha-noi.jpg">
+            <h3>Hà Nội 2 ngày</h3>
+            <p>Tham quan Hồ Gươm – Văn Miếu – Chùa Trấn Quốc.</p>
+            <div class="info-box">
+            <p class="label">Chi phí tour:</p>
+            <p class="value">2.000.000đ / người</p>
+</div>
+
+        </div>
+
+        <div class="card">
+            <img src="images/da-nang.jpg">
+            <h3>Đà Nẵng – Hội An</h3>
+            <p>Cầu Vàng – Bà Nà – Phố cổ Hội An lung linh buổi tối.</p>
+            <div class="info-box">
+            <p class="label">Chi phí tour:</p>
+            <p class="value">4.000.000đ / người</p>
+</div>
+
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <h2 class="section-title">Ước tính chi phí</h2>
+
+    <div class="card">
+        <p>• Khách sạn: 1.200.000đ</p>
+        <p>• Ăn uống: 600.000đ</p>
+        <p>• Di chuyển: 400.000đ</p>
+        <p>• Vé tham quan: 300.000đ</p>
+        <h3 style="margin-top:10px; color:#0077cc;">Tổng: 2.500.000đ</h3>
+    </div>
+</section>
+
+<footer class="contact-section">
+   
+    <div class="contact-container">
+        <h2>Liên Hệ</h2>
+        <div class="contact-info">
+             <p><strong>✉Email:</strong> hoangducthanh131@gmail.com</p>
+            <p><strong>📞Hotline:</strong> 0373 706 212</p>
+            <p><strong>📍Địa chỉ:</strong> Hà Nội, Việt Nam</p>
+            <h3>Kết nối với chúng tôi qua mạng xã hội</h1>
+
+        <div class="social-links">
+            <a href="https://www.facebook.com/" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+            </a>
+
+            <a href="https://t.me/" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
+            </a>
+        </div>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>
